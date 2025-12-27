@@ -1,0 +1,26 @@
+<players root="gfx/characters/costumes/" portraitroot="gfx/ui/stage/" nameimageroot="gfx/ui/boss/">
+    <player name="Gabriel"
+        skin="character_gabriel.png"
+        nameimage="playername_gabriel.png"
+        keys="1"
+        portrait="playerportrait_gabriel.png"
+        skinColor="-1"
+        items="467, 456, 22, 346, 707"
+        trinket="46"
+    />
+
+    <player name="Gabriel"
+        skin="character_gabriel_b.png"
+        nameimage="playername_gabriel.png"
+        hp="2"
+        blackHearts="2"
+        bombs="2"
+        portrait="playerportrait_gabriel_b.png"
+        skinColor="-1"
+        bSkinParent="Gabriel"
+        costumeSuffix="gabrielb"
+        costume="104"
+        items="709"
+        trinket="88"
+    />
+</players>
