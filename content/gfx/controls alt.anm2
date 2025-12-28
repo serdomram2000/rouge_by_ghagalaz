@@ -37,21 +37,27 @@
 					<Frame XPosition="-40" YPosition="30" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
 				<NullAnimation NullId="2" Visible="true">
-					<Frame XPosition="44" YPosition="24" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
+					<Frame XPosition="20" YPosition="24" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
-				<NullAnimation NullId="3" Visible="false">
-					<Frame XPosition="128" YPosition="31" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
+				
+				<NullAnimation NullId="3" Visible="true">
+					<Frame XPosition="105" YPosition="31" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
-				<NullAnimation NullId="4" Visible="true">
+
+				<NullAnimation NullId="4" Visible="false">
 					<Frame XPosition="0" YPosition="0" XScale="100" YScale="100" Delay="1" Visible="false" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
-				<NullAnimation NullId="5" Visible="true">
+				<NullAnimation NullId="5" Visible="false">
 					<Frame XPosition="0" YPosition="0" XScale="100" YScale="100" Delay="1" Visible="false" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
+
 				<NullAnimation NullId="6" Visible="true">
-					<Frame XPosition="128" YPosition="31" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
+					<Frame XPosition="130" YPosition="31" XScale="100" YScale="100" Delay="1" Visible="true" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
 				</NullAnimation>
-				<NullAnimation NullId="7" Visible="true"/>
+
+				<NullAnimation NullId="7" Visible="false">
+					<Frame XPosition="0" YPosition="0" XScale="100" YScale="100" Delay="1" Visible="false" RedTint="255" GreenTint="255" BlueTint="255" AlphaTint="255" RedOffset="0" GreenOffset="0" BlueOffset="0" Rotation="0" Interpolated="false"/>
+				</NullAnimation>
 			</NullAnimations>
 			<Triggers/>
 		</Animation>
