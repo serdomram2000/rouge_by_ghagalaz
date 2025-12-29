@@ -13,7 +13,6 @@
         skin="character_gabriel_b.png"
         nameimage="playername_gabriel.png"
         hp="2"
-        blackHearts="2"
         bombs="2"
         portrait="playerportrait_gabriel_b.png"
         skinColor="-1"
@@ -22,5 +21,6 @@
         costume="104"
         items="709"
         trinket="88"
+        card="12"
     />
 </players>

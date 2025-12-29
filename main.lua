@@ -8,6 +8,7 @@ local hairCostume = Isaac.GetCostumeIdByPath("gfx/characters/gabriel_hair.anm2")
 local stolesCostume = Isaac.GetCostumeIdByPath("gfx/characters/gabriel_stoles.anm2")
 
 local MOMS_BRACELET_ID = 604
+local SUPLEX_ID = 709
 
 function MyCharacterMod:HandleStartingStats(player, flag)
 
@@ -15,6 +16,10 @@ function MyCharacterMod:HandleStartingStats(player, flag)
     if player:GetPlayerType() == gabrielType then
         if flag == CacheFlag.CACHE_DAMAGE then
             player.Damage = player.Damage - 1.5
+        end
+
+        if flag == CacheFlag.CACHE_LUCK then
+            player.Luck = player.Luck + 2
         end
 
     -- Monze logic
@@ -35,6 +40,11 @@ function MyCharacterMod:HandleStartingStats(player, flag)
         if flag == CacheFlag.CACHE_FIREDELAY then
             player.MaxFireDelay = player.MaxFireDelay + 6
         end
+
+        if flag == CacheFlag.CACHE_LUCK then
+            player.Luck = player.Luck - 2
+        end
+
     end
 end
 
@@ -52,14 +62,12 @@ end
 MyCharacterMod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, MyCharacterMod.GiveCostumesOnInit)
 
 function MyCharacterMod:TaintedGabrielInit(player)
-    if player:GetPlayerType() ~= TAINTED_GABRIEL_TYPE then
-        return
+    if player:GetPlayerType() == TAINTED_GABRIEL_TYPE then
+        player:SetPocketActiveItem(MOMS_BRACELET_ID, ActiveSlot.SLOT_POCKET, true)
+        
+        local pool = game:GetItemPool()
+        pool:RemoveCollectible(MOMS_BRACELET_ID)
     end
-
-    player:SetPocketActiveItem(MOMS_BRACELET_ID, ActiveSlot.SLOT_POCKET, true)
-
-    local pool = game:GetItemPool()
-    pool:RemoveCollectible(MOMS_BRACELET_ID)
 end
 
 MyCharacterMod:AddCallback(ModCallbacks.MC_POST_PLAYER_INIT, MyCharacterMod.TaintedGabrielInit)
@@ -71,3 +79,21 @@ function MyCharacterMod:OnBraceletUse(_, _, player, _, activeSlot)
 end
 
 MyCharacterMod:AddCallback(ModCallbacks.MC_USE_ITEM, MyCharacterMod.OnBraceletUse, MOMS_BRACELET_ID)
+
+function MyCharacterMod:FixItemsOnCharacterSwap(player)
+    if player:GetPlayerType() ~= TAINTED_GABRIEL_TYPE then
+        
+        if player:HasCollectible(MOMS_BRACELET_ID) then
+            player:RemoveCollectible(MOMS_BRACELET_ID)
+            if player:GetActiveItem(ActiveSlot.SLOT_POCKET) == MOMS_BRACELET_ID then
+                player:SetPocketActiveItem(0, ActiveSlot.SLOT_POCKET, false)
+            end
+        end
+
+        if player:GetActiveItem(ActiveSlot.SLOT_POCKET) == SUPLEX_ID then
+             player:SetPocketActiveItem(0, ActiveSlot.SLOT_POCKET, false)
+        end
+    end
+end
+
+MyCharacterMod:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, MyCharacterMod.FixItemsOnCharacterSwap)
