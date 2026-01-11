@@ -5,10 +5,10 @@
         keys="1"
         portrait="playerportrait_gabriel.png"
         skinColor="-1"
-        items="467, 456, 22, 346, 707"
+        items="456, 22, 346, 707"
         trinket="46"
     />
-
+<!--ID araña robot: 403-->
     <player name="Gabriel"
         skin="character_gabriel_b.png"
         nameimage="playername_gabriel.png"
