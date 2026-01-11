@@ -11,7 +11,7 @@
 <!--ID araña robot: 403-->
     <player name="Gabriel"
         skin="character_gabriel_b.png"
-        nameimage="playername_gabriel.png"
+        nameimage="playername_gabriel_b.png"
         hp="2"
         bombs="2"
         portrait="playerportrait_gabriel_b.png"
