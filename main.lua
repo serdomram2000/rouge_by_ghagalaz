@@ -11,10 +11,10 @@ local MOMS_BRACELET_ID = 604
 local SUPLEX_ID = 709
 
 -- Rouge stare stats
-local RAY_LENGTH = 1500
-local RAY_WIDTH = 25
-local DAMAGE_PERCENT = 0.15 -- 15%
-local DAMAGE_INTERVAL = 10   -- Cada 10 frames
+local RAY_LENGTH = 1500 --Largo del rayo
+local RAY_WIDTH = 25 --Ancho del rayo
+local DAMAGE_PERCENT = 0.15 -- 15% del daño de lágrimas
+local DAMAGE_INTERVAL = 10   -- Cada 10 frames hace daño
 
 local function GetDistanceFromPointToLine(point, lineStart, lineEnd)
     local lineVec = lineEnd - lineStart
@@ -33,15 +33,15 @@ end
 function MyCharacterMod:HandleStartingStats(player, flag)
     -- Rouge logic (Gabriel)
     if player:GetPlayerType() == gabrielType then
-        if flag == CacheFlag.CACHE_DAMAGE then player.Damage = player.Damage - 1 end
-        if flag == CacheFlag.CACHE_LUCK then player.Luck = player.Luck + 2 end
-        if flag == CacheFlag.CACHE_FIREDELAY then player.MaxFireDelay = player.MaxFireDelay + 2 end
+        if flag == CacheFlag.CACHE_DAMAGE then player.Damage = player.Damage - 1 end --Esto quiere decir que tiene daño base -1 (2.5)
+        if flag == CacheFlag.CACHE_LUCK then player.Luck = player.Luck + 2 end  -- Esto quiere decir que tiene suerte base +2
+        if flag == CacheFlag.CACHE_FIREDELAY then player.MaxFireDelay = player.MaxFireDelay + 2 end --A mayor este número menos tiers base tiene el personaje
 
         -- Monze logic (Tainted Gabriel)
     elseif player:GetPlayerType() == TAINTED_GABRIEL_TYPE then
         if flag == CacheFlag.CACHE_DAMAGE then player.Damage = player.Damage + 0.5 end
-        if flag == CacheFlag.CACHE_RANGE then player.TearRange = player.TearRange - 100 end
-        if flag == CacheFlag.CACHE_SHOTSPEED then player.ShotSpeed = player.ShotSpeed - 0.2 end
+        if flag == CacheFlag.CACHE_RANGE then player.TearRange = player.TearRange - 100 end -- Esto baja el rango
+        if flag == CacheFlag.CACHE_SHOTSPEED then player.ShotSpeed = player.ShotSpeed - 0.2 end -- Esto baja el shot speed
         if flag == CacheFlag.CACHE_FIREDELAY then player.MaxFireDelay = player.MaxFireDelay + 6 end
         if flag == CacheFlag.CACHE_LUCK then player.Luck = player.Luck - 2 end
     end
@@ -109,7 +109,7 @@ function MyCharacterMod:HandleInvisibleRayDamage(player)
             local dist = GetDistanceFromPointToLine(entity.Position, startPos, endPos)
 
             if dist < (RAY_WIDTH + entity.Size) then
-                local damageAmount = math.max(0.15, player.Damage * DAMAGE_PERCENT)
+                local damageAmount = math.max(0.15, player.Damage * DAMAGE_PERCENT) --Este 0.15 es el daño mínimo que hace la mirada de rouge
                 entity:TakeDamage(damageAmount, 0, EntityRef(player), 0)
 
                 entity:SetColor(Color(1, 0.5, 0.5, 1, 0, 0, 0), 2, 1, true, false)
